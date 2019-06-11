@@ -10,26 +10,34 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {          
-          '/v4': {
-              target: 'https://m.maizuo.com',
-              host: 'm.maizuo.com',
-              changeOrigin:true,
-              // pathRewrite: {
-              //     '^/v4/api': '/v4/api'
-              //   }
-          },
-          "/restapi":{
-            target:"https://www.ele.me",
-            host:"www.ele.me",
-            changeOrigin:true
-          },
+    proxyTable: {
+      '/restapi/': {
+        target: `http://172.19.40.14:9999/`,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/restapi': '/'
+        }
+      },
+      // '/api/': {
+      //   target: `http://172.19.20.83:7777/`,
+      //   changeOrigin: true,
+      //   pathRewrite: {
+      //     '^/api': '/'
+      //   }
+      // },
+      '/api/': {
+        target: `http://localhost:9999/`,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': '/'
+        }
+      },
 
-          // "/list":{
-          //   target:"http://localhost:3000",
-          //   host:"localhost",
-          //   changeOrigin:true
-          // }
+      // "/list":{
+      //   target:"http://localhost:3000",
+      //   host:"localhost",
+      //   changeOrigin:true
+      // }
     },
     /*
             https://m.maizuo.com/v4/api/billboard/home?__t=1530347798272

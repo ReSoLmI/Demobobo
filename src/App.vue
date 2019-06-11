@@ -1,18 +1,16 @@
 <template>
   <div>
-
     <navbar>
       <i class="iconfont icon-category" @click="isShow=!isShow"></i>
     </navbar>
     <sidebar :show="isShow" @kerwinevent="isShow=false"></sidebar>
     <!-- 路由容器 -->
-   
 
-     <section>
-        <router-view></router-view>
-     </section>
+    <section>
+      <router-view></router-view>
+    </section>
 
-   <!--  {{10+20}}
+    <!--  {{10+20}}
 
 
     {{name}}
@@ -27,61 +25,51 @@
 
 
     <child1 text="来自app" @kerwinevent="handleEvent"></child1>
-    <child2></child2> -->
+    <child2></child2>-->
     <!-- 路由容器 /home  -->
-    
   </div>
 </template>
 
 
 <script type="text/javascript">
- 
-
 import navbar from "./components/common/navbar";
 import sidebar from "./components/common/sidebar";
 //ES6的方式 导出
 export default {
-
-  data(){
+  data() {
     return {
-      isShow:false
-    }
+      isShow: false
+    };
   },
-  components:{
+  components: {
     navbar,
     sidebar
-  }  
-}
-
-
-
+  }
+};
 </script>
 
 
 <style lang="scss" >
+.kerwinactive {
+  background-color: rgb(107, 179, 221);
+}
 
+* {
+  margin: 0px;
+  padding: 0px;
+}
 
-  .kerwinactive{
-    background-color: red;
-  }
+html,
+body {
+  height: 100%;
+}
 
+ul {
+  list-style: none;
+}
 
-  *{
-    margin:0px;
-    padding:0px;
-  }
-
-  html,body{
-    height: 100%;
-  }
-
-
-  ul {
-    list-style: none;
-  }
-
-  section{
-    position: relative;
-    top:50px;
-  }
+section {
+  position: relative;
+  top: 50px;
+}
 </style>

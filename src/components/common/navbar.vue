@@ -1,61 +1,85 @@
 <template>
-	<nav>
-		<div class="left">
+  <nav>
+    <div class="left">
+      <slot></slot>
+      <span>智慧医疗</span>
+    </div>
+    <div class="center" v-show="mode">
+      001&nbsp;&nbsp;张伟&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <span @click="closePatient">X</span>
+    </div>
+    <div class="right">
+      <span class="right-time">时间：2019年06月01日 12:29:22</span>
+      <span class="right-departments">消化内科&nbsp;∨</span>
 
-		    <slot></slot>
-			<!-- <span>{{$store.state.title}}</span> -->
-			<!-- <span>{{mytitle}}</span> -->
-			<span>{{title}}</span>
-		</div>
-		<div class="right">
-			<span>大连</span>
-			<i class="iconfont icon-account"></i>
-		</div>
-	</nav>
+      <span class="right-time">张护士&nbsp;∨</span>
+    </div>
+  </nav>
 </template>
 
 <script type="text/javascript">
+import { mapState } from "vuex";
+export default {
+  data() {
+    return {
+      // patientShow: true
+    };
+  },
+  computed: {
+    // ...mapState(["title"])
+    mode() {
+      return window.location.href == "http://localhost:8080/card/";
+    }
+  },
+  mounted() {},
 
-    import {mapState} from "vuex";
-	export default{
-		//计算属性
-			// computed:{
-		// 	mytitle(){
-		// 		return this.$store.state.title;
-		// 	}
-		// }
-		computed:{
-
-			...mapState(["title"])			
-
-			// ...展开数组， 展开对象， 进行合并的
-
-			// title(){
-			// 	return this.$store.state.title;
-			// }
-		}
-	}
+  methods: {
+    closePatient() {
+      this.$router.push({
+        path: "/home"
+      });
+      // this.patinetShow = false;
+      // console.log(window.location.href);
+    }
+  }
+};
 </script>
 
-
-
 <style type="text/css" lang="scss" scoped>
-	nav{
-		position: fixed;
-		top:0px;
-		left:0px;
-		width:100%;
-		height: 50px;
-		background:black;
-		line-height: 50px;
-		color:white;
-		z-index:10;
-		.left{
-			float:left;
-		}
+nav {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 40px;
+  background: orange;
+  line-height: 40px;
+  color: white;
+  z-index: 10;
+  .left {
+    float: left;
+    margin-left: 50px;
+  }
+  .center {
+    display: inline-block;
+    margin-left: 25px;
+    padding: 5px 10px;
+    line-height: 28px;
+    width: 108px;
+    border: 1px solid #fff;
+    background: #fff;
+    color: #666;
+    font-size: 14px;
+  }
 
-		.right{
-			float:right;
-		}
-	}
+  .right {
+    float: right;
+  }
+  .right-time {
+    margin-right: 20px;
+  }
+  .right-departments {
+    margin-right: 40px;
+  }
+}
 </style>
