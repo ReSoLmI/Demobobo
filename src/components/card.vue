@@ -2,9 +2,43 @@
   <div>
     <div class="nav">
       <span>患者待办</span>
-      <span>患者病历</span>
+      <!-- <span>患者病历</span>
       <span>体征管理</span>
-      <span>医嘱管理</span>
+      <span>医嘱管理</span>-->
+      <!-- <select
+        class="split-input-select"
+        style="width:100px;height:26px;margin-left:20px;border:none;background:orange;border-right:1px solid #000;"
+      >
+        <option value="volvo">患者待办</option>
+      </select>-->
+      <select
+        class="split-input-select"
+        style="width:100px;height:26px;margin-left:20px;border:none;background:orange;border-right:1px solid #000;"
+      >
+        <option value="volvo">电子病历</option>
+        <option value="saab">入院评估单</option>
+        <option value="saab">每日评估单</option>
+        <option value="saab">护理计划</option>
+        <option value="saab">护理评价</option>
+        <option value="saab">护理记录</option>
+      </select>
+      <select
+        class="split-input-select"
+        style="width:100px;height:26px;margin-left:20px;border:none;background:orange;border-right:1px solid #000;"
+      >
+        <option value="volvo">体征管理</option>
+        <option value="saab">体征录入</option>
+        <option value="saab">体温单</option>
+        <option value="saab">趋势图</option>
+      </select>
+      <select
+        class="split-input-select"
+        style="width:100px;height:26px;margin-left:20px;border:none;background:orange;border-right:1px solid #000;"
+      >
+        <option value="volvo">医嘱管理</option>
+        <option value="saab">医嘱查询</option>
+        <option value="saab">医嘱执行明细</option>
+      </select>
     </div>
     <div class="fast">
       <div>快捷键：</div>
@@ -21,7 +55,7 @@
       </ul>
     </div>
     <div class="main">
-      <div class="main-boot"></div>
+      <div class="main-boot" @closeTemPage="jumpPage()"></div>
       <el-tabs v-model="activeName" type="card" closable @tab-remove="removeTab">
         <el-tab-pane label="患者待办" name="patientdetail" v-if="flagPatientdetail">
           <patientdetail></patientdetail>
@@ -44,8 +78,16 @@
         <el-tab-pane label="体征录入" name="signinput" v-if="flagSigninput">
           <signinput></signinput>
         </el-tab-pane>
-        <el-tab-pane label="医嘱查询" name="docadviceinquiry" v-if="flagDocadviceinquiry">
+        <el-tab-pane
+          label="医嘱查询"
+          name="docadviceinquiry"
+          @showevent="showcard"
+          v-if="flagDocadviceinquiry"
+        >
           <docadviceinquiry></docadviceinquiry>
+        </el-tab-pane>
+        <el-tab-pane label="医嘱查询明细" name="docadviceinquirydetail" v-if="flagDocadviceinquirydetail">
+          <docadviceinquirydetail></docadviceinquirydetail>
         </el-tab-pane>
       </el-tabs>
     </div>
@@ -61,6 +103,7 @@ import patientdetail from "./patientdetail.vue";
 import nursingplan from "./nursingplan.vue";
 import nursingrecord from "./nursingrecord.vue";
 import docadviceinquiry from "./docadviceinquiry.vue";
+import docadviceinquirydetail from "./docadviceinquirydetail.vue";
 // import axios from "src/new/libs/axios.js";
 export default {
   components: {
@@ -71,7 +114,8 @@ export default {
     patientdetail,
     nursingplan,
     nursingrecord,
-    docadviceinquiry
+    docadviceinquiry,
+    docadviceinquirydetail
   },
   data() {
     return {
@@ -87,7 +131,8 @@ export default {
       flagNursingplan: true,
       flagNursingrecord: true,
       flagSigninput: true,
-      flagDocadviceinquiry: true
+      flagDocadviceinquiry: true,
+      flagDocadviceinquirydetail: true
 
       // editableTabsValue2: "2",
       // editableTabs2: [
@@ -110,6 +155,7 @@ export default {
       // tabIndex: 2
     };
   },
+  mounted() {},
   methods: {
     removeTab(targetName) {
       let tabs = this.editableTabs2;
@@ -128,7 +174,17 @@ export default {
       this.editableTabsValue2 = activeName;
       this.editableTabs2 = tabs.filter(tab => tab.name !== targetName);
     }
+  },
+  jumpPage() {
+    this.flagTemperaturechart = false;
+    console.log(this.flagTemperaturechart);
+    this.flagSigninput = true;
   }
+  // showcard() {
+  //   console.log(1234);
+  //   this.flagDocadviceinquiry = false;
+  //   this.flagDocadviceinquirydetail = true;
+  // }
 };
 </script>
 

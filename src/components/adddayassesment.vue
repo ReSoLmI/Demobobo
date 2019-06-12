@@ -212,7 +212,7 @@
       <el-row class="patientdetail-title-main-other" style="margin-left:30px;margin-top: 7px;">
         <el-col :offset="0.5" :span="7">
           <span class="patientdetail-title">精神系统</span>
-          <div class="f0" style="margin-left:32px  ;float:right">
+          <div class="f0" style="margin-left:32px;float:right">
             <div class="management">正常</div>
             <div class="unmanagement">异常</div>
           </div>

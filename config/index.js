@@ -18,20 +18,20 @@ module.exports = {
           '^/restapi': '/'
         }
       },
-      // '/api/': {
-      //   target: `http://172.19.20.83:7777/`,
-      //   changeOrigin: true,
-      //   pathRewrite: {
-      //     '^/api': '/'
-      //   }
-      // },
       '/api/': {
-        target: `http://localhost:9999/`,
+        target: `http://172.19.20.83:7777/`,
         changeOrigin: true,
         pathRewrite: {
           '^/api': '/'
         }
       },
+      // '/api/': {
+      //   target: `http://localhost:9999/`,
+      //   changeOrigin: true,
+      //   pathRewrite: {
+      //     '^/api': '/'
+      //   }
+      // },
 
       // "/list":{
       //   target:"http://localhost:3000",

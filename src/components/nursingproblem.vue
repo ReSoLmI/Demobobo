@@ -850,12 +850,12 @@ export default {
     margin-right: 20px;
   }
 }
-.el-button {
-  // padding: 6px 10px;
+// .el-button {
+//   // padding: 6px 10px;
 
-  // background: #aaa;
-  // color: #fff;
-}
+//   // background: #aaa;
+//   // color: #fff;
+// }
 // nursingproblem 过度动画
 // .bounce-enter-active {
 //   animation: bounce-in 0.5s;

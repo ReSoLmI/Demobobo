@@ -3,15 +3,15 @@
     <el-row>
       <div>
         <div class="header">
-          <span style="display:inline-block;line-height:60px;font-size:20px;">001</span>
+          <!-- <span style="display:inline-block;line-height:60px;font-size:20px;">001</span>
           <span style="display:inline-block;line-height:60px;font-size:16px;">床 张伟</span>
           <span style="display:inline-block;line-height:60px;font-size:12px;color:#CCC;">9049362</span>
           <span style="display:inline-block;line-height:60px;font-size:12px;color:#CCC;">男</span>
           <span style="display:inline-block;line-height:60px;font-size:12px;color:#CCC;">69岁</span>
           <span
             style="display:inline-block;line-height:12px;width:30px;height:12px;font-size:10px;background:#CCC;color:#fff;border-radius:4px;"
-          >01天</span>
-          <img
+          >01天</span>-->
+          <!-- <img
             src="../../static/image/12121/v8.png"
             alt
             style="display:inline-block;position: absolute;top: 22px;left: 300px;"
@@ -20,22 +20,45 @@
             src="../../static/image/12121/4B.png"
             alt
             style="display:inline-block;position: absolute;top: 4px;left: 1000px;"
+          >-->
+          <img
+            src="../../static/image/12121/detail.png"
+            alt
+            style="display:inline-block;margin-top:-3px;margin-left:-2px"
           >
+          <div
+            style="display:inline-block;font-size:12px;color:#00f;position: relative;top: -28px;right: -228px;"
+          >打印腕带</div>
         </div>
       </div>
       <div>
-        <el-table :data="bradenTableData" border style="width: 100%">
-          <el-table-column prop="date" label="计划时间" width="150"></el-table-column>
-          <el-table-column prop="name" label="执行内容" width="750"></el-table-column>
-          <el-table-column prop="tem" label="操作" width="170"></el-table-column>
-          <el-table-column prop="bloodpressure" label="时间" width="210">
-            <el-time-select
-              v-model="value1"
-              :picker-options="{start: '08:30',step: '00:15',end: '18:30'}"
-              placeholder="选择时间"
-            ></el-time-select>
-          </el-table-column>
-        </el-table>
+        <div style="height:64px;border:1px solid #ccc;margin-top:20px">
+          <el-menu
+            :default-active="activeIndex"
+            class="el-menu-demo"
+            mode="horizontal"
+            @select="handleSelect"
+            style="display:inline-block;"
+          >
+            <el-menu-item index="1">文书待办</el-menu-item>
+            <el-menu-item index="2">待测体征</el-menu-item>
+            <el-menu-item index="3">医嘱执行</el-menu-item>
+          </el-menu>
+        </div>
+        <div style="margin-top:-20px">
+          <el-table :data="bradenTableData" border style="width: 100%">
+            <el-table-column prop="date" label="计划时间" width="150"></el-table-column>
+            <el-table-column prop="name" label="执行内容" width="750"></el-table-column>
+            <el-table-column prop="tem" label="操作" width="170"></el-table-column>
+            <el-table-column prop="bloodpressure" label="时间" width="210">
+              <el-time-select
+                v-model="value1"
+                :picker-options="{start: '08:30',step: '00:15',end: '18:30'}"
+                placeholder="选择时间"
+              ></el-time-select>
+            </el-table-column>
+          </el-table>
+        </div>
       </div>
     </el-row>
   </div>
@@ -46,6 +69,7 @@ import axios from "axios";
 export default {
   data() {
     return {
+      activeIndex: "1",
       contentdata: {},
       baseinfo: {},
       value1: "",

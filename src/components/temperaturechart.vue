@@ -29,7 +29,8 @@
       </div>
       <div class="top">
         <div
-          style="width:100px;height:30px;font-size:12px;line-height:30px;text-align:center;maigin-left:28px;margin-top:30px;background: #eee;    margin-left: 28px;"
+          style="width:100px;height:30px;font-size:12px;line-height:30px;text-align:center;maigin-left:28px;margin-top:30px;background: #eee;margin-left: 28px;"
+          @click="jump"
         >录入</div>
       </div>
       <div class="middle">
@@ -165,6 +166,10 @@ export default {
     closeArticalShow() {
       this.articalShow = false;
       this.sidebarShow = !this.sidebarShow;
+    },
+    jump() {
+      console.log(3);
+      this.$emit("closeTemPage");
     },
     chooseAll() {}
   }

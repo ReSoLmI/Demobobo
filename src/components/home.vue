@@ -13,39 +13,41 @@
       <li class="style-right">体温异常2</li>
     </ul>
 
-    <img src="../../static/image/C1.png" alt class="fl-r" @click="changemode">
+    <div style="width:1334px;">
+      <img src="../../static/image/C1.png" alt class="fl-r" @click="changemode">
 
-    <img src="../../static/image/12121/001.jpg" alt class="img1" @click="changemodetocard">
+      <img src="../../static/image/12121/001.jpg" alt class="img1" @click="changemodetocard">
 
-    <img src="../../static/image/12121/002.jpg" alt class="img2" @click="changemodetocard">
+      <img src="../../static/image/12121/002.jpg" alt class="img2" @click="changemodetocard">
 
-    <img src="../../static/image/12121/003.jpg" alt class="img3" @click="changemodetocard">
+      <img src="../../static/image/12121/003.jpg" alt class="img3" @click="changemodetocard">
 
-    <img src="../../static/image/12121/004.jpg" alt class="img4" @click="changemodetocard">
+      <img src="../../static/image/12121/004.jpg" alt class="img4" @click="changemodetocard">
 
-    <img src="../../static/image/12121/005.jpg" alt class="img1" @click="changemodetocard">
+      <img src="../../static/image/12121/005.jpg" alt class="img1" @click="changemodetocard">
 
-    <img src="../../static/image/12121/006.jpg" alt class="img6" @click="changemodetocard">
+      <img src="../../static/image/12121/006.jpg" alt class="img6" @click="changemodetocard">
 
-    <img src="../../static/image/12121/007.jpg" alt class="img7" @click="changemodetocard">
+      <img src="../../static/image/12121/007.jpg" alt class="img7" @click="changemodetocard">
 
-    <img src="../../static/image/12121/008.jpg" alt class="img8" @click="changemodetocard">
+      <img src="../../static/image/12121/008.jpg" alt class="img8" @click="changemodetocard">
 
-    <img src="../../static/image/12121/009.jpg" alt class="img1" @click="changemodetocard">
+      <img src="../../static/image/12121/009.jpg" alt class="img1" @click="changemodetocard">
 
-    <img src="../../static/image/12121/010.jpg" alt class="img9" @click="changemodetocard">
+      <img src="../../static/image/12121/010.jpg" alt class="img9" @click="changemodetocard">
 
-    <img src="../../static/image/12121/011.jpg" alt class="img10" @click="changemodetocard">
+      <img src="../../static/image/12121/011.jpg" alt class="img10" @click="changemodetocard">
 
-    <img src="../../static/image/12121/012.jpg" alt class="img11" @click="changemodetocard">
+      <img src="../../static/image/12121/012.jpg" alt class="img11" @click="changemodetocard">
 
-    <img src="../../static/image/12121/013.jpg" alt class="img1" @click="changemodetocard">
+      <img src="../../static/image/12121/013.jpg" alt class="img1" @click="changemodetocard">
 
-    <img src="../../static/image/12121/014.jpg" alt class="img12" @click="changemodetocard">
+      <img src="../../static/image/12121/014.jpg" alt class="img12" @click="changemodetocard">
 
-    <img src="../../static/image/12121/015.jpg" alt class="img13" @click="changemodetocard">
+      <img src="../../static/image/12121/015.jpg" alt class="img13" @click="changemodetocard">
 
-    <img src="../../static/image/12121/016.jpg" alt class="img14" @click="changemodetocard">
+      <img src="../../static/image/12121/016.jpg" alt class="img14" @click="changemodetocard">
+    </div>
   </div>
 
   <div v-else>

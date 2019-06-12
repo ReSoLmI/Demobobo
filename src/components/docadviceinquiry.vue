@@ -503,8 +503,9 @@ export default {
 
   methods: {
     showDetail() {
-      this.query = false;
-      this.querydetail = true;
+      this.query = true;
+      this.querydetail = false;
+      this.$emit("showevent");
     },
     showOperation() {}
   }

@@ -5,8 +5,10 @@
       <span>智慧医疗</span>
     </div>
     <div class="center" v-show="mode">
-      001&nbsp;&nbsp;张伟&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <span @click="closePatient">X</span>
+      001&nbsp;&nbsp;刘德安&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <span
+        @click="closePatient"
+      >X</span>
     </div>
     <div class="right">
       <span class="right-time">时间：2019年06月01日 12:29:22</span>
@@ -21,14 +23,11 @@
 import { mapState } from "vuex";
 export default {
   data() {
-    return {
-      // patientShow: true
-    };
+    return {};
   },
   computed: {
-    // ...mapState(["title"])
     mode() {
-      return window.location.href == "http://localhost:8080/card/";
+      window.location.href === "http://localhost:8080/card";
     }
   },
   mounted() {},
