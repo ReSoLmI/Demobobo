@@ -3,7 +3,7 @@
     <div class="nav">
       <span style="width: 86px;">体征批量录入</span>
       <span>医嘱管理</span>
-      <span>代办提醒</span>
+      <span>待办提醒</span>
       <span>统计分析</span>
     </div>
     <!-- <div class="fast">

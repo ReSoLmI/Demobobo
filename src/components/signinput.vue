@@ -34,6 +34,7 @@
       <div
         class="sign-input save"
         style="float:right;margin-right:80px;color:#00f;"
+        @click="signinputSave"
       >保&nbsp;&nbsp;&nbsp;&nbsp;存</div>
     </div>
     <div class="sign-input-bottom" style="overflow:hidden">
@@ -62,14 +63,14 @@
         <p style="height:40px;text-indent:40px;line-height:40px;font-size:14px;color:#363636; margin-top:14px;">
           录入时间
 
-          <ul class='right-list'>
-            <div>2</div>
-            <div>6</div>
-            <div>10</div>
-            <div>14</div>
-            <div>18</div>
-            <div>22</div>
-            <div style="background:#fff">11:05</div>
+          <ul id='right-list'>
+            <li>2</li>
+            <li>6</li>
+            <li>10</li>
+            <li>14</li>
+            <li>18</li>
+            <li>22</li>
+            <li>11:05</li>
           </ul>
         </p>
         <p style="height:40px;text-indent:40px;line-height:40px;font-size:14px;color:#363636">
@@ -87,7 +88,7 @@
         <div style="height:200px;">
               <p style="padding-top:20px;">
             <div style="height:30px;width:49.6%;display:inline-block;text-indent:50px;color:#363636;font-size:14px;color:#00f">体温(℃)
-              <input type='text' placeholder="37.1" style="margin-left:50px;margin-right:19px;text-indent:70px;">
+              <input type='text' placeholder="37.1" style="margin-left:50px;margin-right:19px;text-indent:70px; ">
               <span style="text-align:cneter;border:1px solid #ccc;background:#FAFAFA;color:#E1E1E1;font-size:12px;">降温后</span>
             </div>
             <div style="height:30px;width:49.6%;display:inline-block;text-indent:50px;color:#363636;font-size:14px;color:#00f">脉搏(次/分)
@@ -175,6 +176,18 @@
 </template>
 
 <script type="text/javascript">
+
+      $(document).ready(function(){
+      $("#right-list li").click(function(){
+               var color= $(this).css('background-color');
+               if(color!='transparent'&&color!='rgba(0, 0, 0, 0)'){
+                 $(this).css('background-color','transparent');
+                 }else{
+                   $(this).css('background-color','#CCC');
+                  }
+                  });
+
+});
 import axios from "axios";
 export default {
   data() {
@@ -194,26 +207,31 @@ export default {
     });
   },
 
-  methods: {}
+  methods: {
+    signinputSave(){
+      this.$message("体征录入成功");
+    }
+  }
 };
 </script>
 
 
 
 <style type="text/css" lang="scss" scoped>
-.right-list{
+#right-list{
   display: inline-block;
   // float: left;
-  div{
+  li{
     // float: left;
     display:inline-block;
     // width: 40px;
     height: 30px;
     border: 1px solid #ccc;
-    padding-right:5px;
+    padding-right:31px;
     // text-align: center;
     line-height: 30px;
-    background:#F3F3F3
+    background:#CCC;
+    user-select: none;
   }
 }
 </style>

@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from "./store";
+import $ from 'jquery'
 
 
 //引入 element-ui
@@ -16,15 +17,21 @@ import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 Vue.use(MintUI);
 
- 
+
 //ES6 导入模块的方式-第二种
-import {obj as a,test as b}  from "./module/moduleB";// export {}
-console.log(a,b);
+import {
+  obj as a,
+  test as b
+} from "./module/moduleB"; // export {}
+console.log(a, b);
 
 
 //ES6 导入模块的方式-第三种
-import myModuleC , {test1,test2} from "./module/moduleC";
-console.log(myModuleC,test1,test2);
+import myModuleC, {
+  test1,
+  test2
+} from "./module/moduleC";
+console.log(myModuleC, test1, test2);
 
 //ES6 导入模块的方式-第四种
 import * as all from "./module/moduleC";
@@ -56,8 +63,8 @@ new Vue({
   el: '#box',
   store, //vuex 与vue 模块结合
   router, //vue 与 vue 路由模块结合。
-  components: { App },
+  components: {
+    App
+  },
   template: '<App></App>'
 })
-
-

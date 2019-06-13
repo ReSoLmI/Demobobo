@@ -118,24 +118,24 @@
         <el-row class="patientdetail-title-main">
           <el-col :offset="0.5">
             <span class="patientdetail-title">婚姻状况</span>
-            <el-radio v-model="radio" label="1" class="el-radio">未婚</el-radio>
-            <el-radio v-model="radio" label="2" class="el-radio">已婚</el-radio>
-            <el-radio v-model="radio" label="3" class="el-radio">丧偶</el-radio>
-            <el-radio v-model="radio" label="4" class="el-radio">离婚</el-radio>
-            <el-radio v-model="radio" label="5" class="el-radio">其他</el-radio>
+            <el-radio v-model="a_radio" label="1" class="el-radio">未婚</el-radio>
+            <el-radio v-model="a_radio" label="2" class="el-radio">已婚</el-radio>
+            <el-radio v-model="a_radio" label="3" class="el-radio">丧偶</el-radio>
+            <el-radio v-model="a_radio" label="4" class="el-radio">离婚</el-radio>
+            <el-radio v-model="a_radio" label="5" class="el-radio">其他</el-radio>
           </el-col>
         </el-row>
 
         <el-row class="patientdetail-title-main">
           <el-col :offset="0.5">
             <span class="patientdetail-title">文化程度</span>
-            <el-radio v-model="radio" label="edu-1" class="el-radio">文盲</el-radio>
-            <el-radio v-model="radio" label="edu-2" class="el-radio">小学</el-radio>
-            <el-radio v-model="radio" label="edu-3" class="el-radio">初中</el-radio>
-            <el-radio v-model="radio" label="edu-4" class="el-radio">高中</el-radio>
-            <el-radio v-model="radio" label="edu-5" class="el-radio">中专</el-radio>
-            <el-radio v-model="radio" label="edu-6" class="el-radio">大专</el-radio>
-            <el-radio v-model="radio" label="edu-7" class="el-radio">本科及以上</el-radio>
+            <el-radio v-model="b_radio" label="edu-1" class="el-radio">文盲</el-radio>
+            <el-radio v-model="b_radio" label="edu-2" class="el-radio">小学</el-radio>
+            <el-radio v-model="b_radio" label="edu-3" class="el-radio">初中</el-radio>
+            <el-radio v-model="b_radio" label="edu-4" class="el-radio">高中</el-radio>
+            <el-radio v-model="b_radio" label="edu-5" class="el-radio">中专</el-radio>
+            <el-radio v-model="b_radio" label="edu-6" class="el-radio">大专</el-radio>
+            <el-radio v-model="b_radio" label="edu-7" class="el-radio">本科及以上</el-radio>
           </el-col>
         </el-row>
 
@@ -151,7 +151,7 @@
               ></el-option>
             </el-select>
             <el-input
-              v-model="telinput"
+              v-model="submitForm.telinput"
               placeholder="请输入联系电话"
               size="mini"
               class="detail-telinput-mini"
@@ -172,11 +172,11 @@
         <el-row class="patientdetail-title-main">
           <el-col :offset="0.5">
             <span class="patientdetail-title">入院方式</span>
-            <el-radio v-model="radio" label="1" class="el-radio">步行</el-radio>
-            <el-radio v-model="radio" label="2" class="el-radio">扶走</el-radio>
-            <el-radio v-model="radio" label="3" class="el-radio">轮椅</el-radio>
-            <el-radio v-model="radio" label="4" class="el-radio">平车</el-radio>
-            <el-radio v-model="radio" label="5" class="el-radio">担架</el-radio>
+            <el-radio v-model="c_radio" label="way-1" class="el-radio">步行</el-radio>
+            <el-radio v-model="c_radio" label="way-2" class="el-radio">扶走</el-radio>
+            <el-radio v-model="c_radio" label="way-3" class="el-radio">轮椅</el-radio>
+            <el-radio v-model="c_radio" label="way-4" class="el-radio">平车</el-radio>
+            <el-radio v-model="c_radio" label="way-5" class="el-radio">担架</el-radio>
           </el-col>
         </el-row>
 
@@ -230,9 +230,9 @@
         <el-row class="patientdetail-title-main">
           <el-col :offset="0.5">
             <span class="patientdetail-title">食欲</span>
-            <el-radio v-model="radio" label="1" class="el-radio" style="margin-left:56px">正常</el-radio>
-            <el-radio v-model="radio" label="2" class="el-radio">亢进</el-radio>
-            <el-radio v-model="radio" label="3" class="el-radio">下降/厌食</el-radio>
+            <el-radio v-model="d_radio" label="food-1" class="el-radio" style="margin-left:56px">正常</el-radio>
+            <el-radio v-model="d_radio" label="food-2" class="el-radio">亢进</el-radio>
+            <el-radio v-model="d_radio" label="food-3" class="el-radio">下降/厌食</el-radio>
           </el-col>
         </el-row>
         <el-row class="patientdetail-title-main">
@@ -266,11 +266,11 @@
         <el-row class="patientdetail-title-main">
           <el-col :offset="0.5">
             <span class="patientdetail-title">大便</span>
-            <el-radio v-model="radio" label="1" class="el-radio" style="margin-left:56px">正常</el-radio>
-            <el-radio v-model="radio" label="2" class="el-radio">便秘</el-radio>
-            <el-radio v-model="radio" label="3" class="el-radio">腹泻</el-radio>
-            <el-radio v-model="radio" label="4" class="el-radio">失禁</el-radio>
-            <el-radio v-model="radio" label="5" class="el-radio">其他</el-radio>
+            <el-radio v-model="e_radio" label="meth-1" class="el-radio" style="margin-left:56px">正常</el-radio>
+            <el-radio v-model="e_radio" label="meth-2" class="el-radio">便秘</el-radio>
+            <el-radio v-model="e_radio" label="meth-3" class="el-radio">腹泻</el-radio>
+            <el-radio v-model="e_radio" label="meth-4" class="el-radio">失禁</el-radio>
+            <el-radio v-model="e_radio" label="meth-5" class="el-radio">其他</el-radio>
           </el-col>
         </el-row>
         <el-row class="patientdetail-title-main-other">
@@ -287,7 +287,7 @@
             <div @click="selfAssesment">
               <span class="patientdetail-title">自理能力</span>
               <el-input
-                v-model="telinput"
+                v-model="submitForm.zlnl"
                 placeholder="点击选择"
                 size="mini"
                 class="detail-telinput-mini-zili"
@@ -308,18 +308,18 @@
         <el-row class="patientdetail-title-main">
           <el-col :offset="0.5">
             <span class="patientdetail-title">活动能力</span>
-            <el-radio v-model="radio" label="1" class="el-radio">自主活动</el-radio>
-            <el-radio v-model="radio" label="2" class="el-radio">活动受限</el-radio>
-            <el-radio v-model="radio" label="3" class="el-radio">卧床</el-radio>
+            <el-radio v-model="f_radio" label="pop-1" class="el-radio">自主活动</el-radio>
+            <el-radio v-model="f_radio" label="pop-2" class="el-radio">活动受限</el-radio>
+            <el-radio v-model="f_radio" label="pop-3" class="el-radio">卧床</el-radio>
           </el-col>
         </el-row>
 
         <el-row class="patientdetail-title-main">
           <el-col :offset="0.5">
             <span class="patientdetail-title">健康意识</span>
-            <el-radio v-model="radio" label="1" class="el-radio">良好</el-radio>
-            <el-radio v-model="radio" label="2" class="el-radio">一般</el-radio>
-            <el-radio v-model="radio" label="3" class="el-radio">差</el-radio>
+            <el-radio v-model="g_radio" label="tx-1" class="el-radio">良好</el-radio>
+            <el-radio v-model="g_radio" label="tx-2" class="el-radio">一般</el-radio>
+            <el-radio v-model="g_radio" label="tx-3" class="el-radio">差</el-radio>
           </el-col>
         </el-row>
         <el-row class="patientdetail-title-main-other">
@@ -347,17 +347,22 @@
         <el-row class="patientdetail-title-main">
           <el-col :offset="0.5">
             <span class="patientdetail-title">心理状态</span>
-            <el-radio v-model="radio" label="1" class="el-radio" style="margin-left:56px">情绪稳定</el-radio>
-            <el-radio v-model="radio" label="2" class="el-radio">焦虑</el-radio>
-            <el-radio v-model="radio" label="3" class="el-radio">抑郁</el-radio>
-            <el-radio v-model="radio" label="4" class="el-radio">其他</el-radio>
+            <el-radio
+              v-model="radio"
+              label="status-1"
+              class="el-radio"
+              style="margin-left:56px"
+            >情绪稳定</el-radio>
+            <el-radio v-model="h_radio" label="status-2" class="el-radio">焦虑</el-radio>
+            <el-radio v-model="h_radio" label="status-3" class="el-radio">抑郁</el-radio>
+            <el-radio v-model="h_radio" label="status-4" class="el-radio">其他</el-radio>
           </el-col>
         </el-row>
         <el-row class="patientdetail-title-main">
           <el-col :offset="0.5">
             <span class="patientdetail-title">社会家庭支持</span>
-            <el-radio v-model="radio" label="1" class="el-radio">良好</el-radio>
-            <el-radio v-model="radio" label="2" class="el-radio">有困难</el-radio>
+            <el-radio v-model="i_radio" label="soc-1" class="el-radio">良好</el-radio>
+            <el-radio v-model="i_radio" label="soc-2" class="el-radio">有困难</el-radio>
           </el-col>
         </el-row>
       </div>
@@ -375,7 +380,7 @@
               size="mini"
               class="detail-input-mini"
               placeholder="请输入"
-              v-model="submitForm.nation"
+              v-model="submitForm.signtemp"
             ></el-input>
           </el-col>
           <el-col :span="5" :offset="1">
@@ -384,7 +389,7 @@
               size="mini"
               class="detail-input-mini"
               placeholder="请输入"
-              v-model="submitForm.birthplace"
+              v-model="submitForm.signmb"
             ></el-input>
           </el-col>
           <el-col :span="5" :offset="1">
@@ -393,7 +398,7 @@
               size="mini"
               class="detail-input-mini"
               placeholder="请输入"
-              v-model="submitForm.birthplace"
+              v-model="submitForm.signhx"
             ></el-input>
           </el-col>
         </el-row>
@@ -405,13 +410,13 @@
               size="mini"
               class="detail-input-mini"
               placeholder="请输入"
-              v-model="submitForm.nation"
+              v-model="submitForm.signxy"
             ></el-input>/
             <el-input
               size="mini"
               class="detail-input-mini"
               placeholder="请输入"
-              v-model="submitForm.nation"
+              v-model="submitForm.signxyz"
             ></el-input>
           </el-col>
           <el-col :span="5" :offset="1">
@@ -420,7 +425,7 @@
               size="mini"
               class="detail-input-mini"
               placeholder="请输入"
-              v-model="submitForm.birthplace"
+              v-model="submitForm.signweight"
               style="margin-left:9px"
             ></el-input>
           </el-col>
@@ -430,7 +435,7 @@
               size="mini"
               class="detail-input-mini"
               placeholder="请输入"
-              v-model="submitForm.birthplace"
+              v-model="submitForm.signhigh"
               style="margin-left:24px"
             ></el-input>
           </el-col>
@@ -439,38 +444,38 @@
         <el-row class="patientdetail-title-main">
           <el-col :offset="0.5">
             <span class="patientdetail-title">意识状态</span>
-            <el-radio v-model="radio" label="1" class="el-radio">清醒</el-radio>
-            <el-radio v-model="radio" label="2" class="el-radio">模糊</el-radio>
-            <el-radio v-model="radio" label="3" class="el-radio">谵妄</el-radio>
-            <el-radio v-model="radio" label="4" class="el-radio">嗜睡</el-radio>
-            <el-radio v-model="radio" label="4" class="el-radio">昏睡</el-radio>
-            <el-radio v-model="radio" label="4" class="el-radio">昏迷</el-radio>
+            <el-radio v-model="j_radio" label="ystatus-1" class="el-radio">清醒</el-radio>
+            <el-radio v-model="j_radio" label="ystatus-2" class="el-radio">模糊</el-radio>
+            <el-radio v-model="j_radio" label="ystatus-3" class="el-radio">谵妄</el-radio>
+            <el-radio v-model="j_radio" label="ystatus-4" class="el-radio">嗜睡</el-radio>
+            <el-radio v-model="j_radio" label="ystatus-4" class="el-radio">昏睡</el-radio>
+            <el-radio v-model="j_radio" label="ystatus-4" class="el-radio">昏迷</el-radio>
           </el-col>
         </el-row>
 
         <el-row class="patientdetail-title-main">
           <el-col :offset="0.5">
             <span class="patientdetail-title">表情</span>
-            <el-radio v-model="radio" label="1" class="el-radio" style="margin-left:56px">正常</el-radio>
-            <el-radio v-model="radio" label="2" class="el-radio">淡漠</el-radio>
-            <el-radio v-model="radio" label="3" class="el-radio">痛苦</el-radio>
+            <el-radio v-model="k_radio" label="bq-1" class="el-radio" style="margin-left:56px">正常</el-radio>
+            <el-radio v-model="l_radio" label="bq-2" class="el-radio">淡漠</el-radio>
+            <el-radio v-model="l_radio" label="bq-3" class="el-radio">痛苦</el-radio>
           </el-col>
         </el-row>
         <el-row class="patientdetail-title-main">
           <el-col :offset="0.5">
             <span class="patientdetail-title">瞳孔</span>
-            <el-radio v-model="radio" label="1" class="el-radio" style="margin-left:56px">左、右等大</el-radio>
-            <el-radio v-model="radio" label="2" class="el-radio">不等大</el-radio>
-            <el-radio v-model="radio" label="3" class="el-radio">散大</el-radio>
-            <el-radio v-model="radio" label="4" class="el-radio">缩小</el-radio>
+            <el-radio v-model="m_radio" label="tk-1" class="el-radio" style="margin-left:56px">左、右等大</el-radio>
+            <el-radio v-model="n_radio" label="tk-2" class="el-radio">不等大</el-radio>
+            <el-radio v-model="n_radio" label="tk-3" class="el-radio">散大</el-radio>
+            <el-radio v-model="n_radio" label="tk-4" class="el-radio">缩小</el-radio>
           </el-col>
         </el-row>
         <el-row class="patientdetail-title-main">
           <el-col :offset="0.5">
             <span class="patientdetail-title">对光反射</span>
-            <el-radio v-model="radio" label="1" class="el-radio">存在</el-radio>
-            <el-radio v-model="radio" label="2" class="el-radio">迟钝</el-radio>
-            <el-radio v-model="radio" label="3" class="el-radio">消失</el-radio>
+            <el-radio v-model="o_radio" label="fs-1" class="el-radio">存在</el-radio>
+            <el-radio v-model="o_radio" label="fs-2" class="el-radio">迟钝</el-radio>
+            <el-radio v-model="o_radio" label="fs-3" class="el-radio">消失</el-radio>
           </el-col>
         </el-row>
         <el-row class="patientdetail-title-main-other">
@@ -606,9 +611,33 @@ export default {
         age: "",
         project: "",
         nation: "",
-        birthplace: ""
+        birthplace: "",
+        signhigh: "",
+        signweight: "",
+        signxyz: "",
+        signxy: "",
+        signhx: "",
+        signmb: "",
+        sightemp: "",
+        zlnl: "",
+        telinput: ""
       },
-      radio: "1",
+      a_radio: "1",
+      b_radio: "2",
+      c_radio: "1",
+      d_radio: "3",
+      e_radio: "1",
+      f_radio: "2",
+      g_radio: "4",
+      h_radio: "2",
+      i_radio: "3",
+      j_radio: "1",
+      k_radio: "2",
+      l_radio: "1",
+      m_radio: "2",
+      n_radio: "1",
+      o_radio: "2",
+
       options: [
         {
           value: "选项1",

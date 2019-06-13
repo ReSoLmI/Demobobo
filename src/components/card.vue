@@ -1,5 +1,9 @@
 <template>
   <div>
+    <div class="center">
+      001&nbsp;&nbsp;张伟&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <span @click="closePatient">X</span>
+    </div>
     <div class="nav">
       <span>患者待办</span>
       <!-- <span>患者病历</span>
@@ -43,20 +47,20 @@
     <div class="fast">
       <div>快捷键：</div>
       <ul>
-        <li>&nbsp;&nbsp;&nbsp;&nbsp;患者代办</li>
-        <li>入院评估单</li>
-        <li>每日评估单</li>
-        <li>护理计划</li>
-        <li>护理记录单</li>
-        <li>体温单</li>
-        <li>体征录入</li>
-        <li>医嘱查询</li>
-        <li>医嘱执行明细</li>
+        <li @click="patientdetailShow">&nbsp;&nbsp;&nbsp;&nbsp;患者待办</li>
+        <li @click="assesmentShow">入院评估单</li>
+        <li @click="dayassesmentShow">每日评估单</li>
+        <li @click="nursingplanShow">护理计划</li>
+        <li @click="nursingrecordShow">护理记录单</li>
+        <li @click="temperaturechartShow">体温单</li>
+        <li @click="signinputShow">体征录入</li>
+        <li @click="docadviceinquiryShow">医嘱查询</li>
+        <li @click="docadviceinquirydetailShow">医嘱执行明细</li>
       </ul>
     </div>
     <div class="main">
-      <div class="main-boot" @closeTemPage="jumpPage()"></div>
-      <el-tabs v-model="activeName" type="card" closable @tab-remove="removeTab">
+      <!-- <div class="main-boot" @closeTemPage="jumpPage()"></div> -->
+      <el-tabs v-model="editableTabsValue2" type="card" closable @tab-remove="removeTab">
         <el-tab-pane label="患者待办" name="patientdetail" v-if="flagPatientdetail">
           <patientdetail></patientdetail>
         </el-tab-pane>
@@ -73,23 +77,27 @@
           <nursingrecord></nursingrecord>
         </el-tab-pane>
         <el-tab-pane label="体温单" name="temperaturechart" v-if="flagTemperaturechart">
-          <temperaturechart></temperaturechart>
+          <temperaturechart v-on:show-temevent="showtemevent"></temperaturechart>
         </el-tab-pane>
         <el-tab-pane label="体征录入" name="signinput" v-if="flagSigninput">
           <signinput></signinput>
         </el-tab-pane>
-        <el-tab-pane
-          label="医嘱查询"
-          name="docadviceinquiry"
-          @showevent="showcard"
-          v-if="flagDocadviceinquiry"
-        >
-          <docadviceinquiry></docadviceinquiry>
+        <el-tab-pane label="医嘱查询" name="docadviceinquiry" v-if="flagDocadviceinquiry">
+          <docadviceinquiry v-on:show-docevent="showevent"></docadviceinquiry>
         </el-tab-pane>
         <el-tab-pane label="医嘱查询明细" name="docadviceinquirydetail" v-if="flagDocadviceinquirydetail">
           <docadviceinquirydetail></docadviceinquirydetail>
         </el-tab-pane>
       </el-tabs>
+
+      <!-- <el-tabs v-model="editableTabsValue2" type="card" closable @tab-remove="removeTab">
+        <el-tab-pane
+          v-for="(item, index) in editableTabs2"
+          :key="item.name"
+          :label="item.title"
+          :name="item.name"
+        >{{item.content}}</el-tab-pane>
+      </el-tabs>-->
     </div>
   </div>
 </template>
@@ -119,7 +127,8 @@ export default {
   },
   data() {
     return {
-      activeName: "patientdetail", //tab的active
+      // tabIndex: 2,
+      editableTabsValue2: "patientdetail", //tab的active
       assesment: {}, //入院评估Obj
       dayassesment: {},
       // temperaturechart: {}, //体温单Obj
@@ -128,35 +137,81 @@ export default {
       flagTemperaturechart: true,
       flagAssesment: true,
       flagDayassesment: true,
-      flagNursingplan: true,
-      flagNursingrecord: true,
+      flagNursingplan: false,
+      flagNursingrecord: false,
       flagSigninput: true,
       flagDocadviceinquiry: true,
-      flagDocadviceinquirydetail: true
-
-      // editableTabsValue2: "2",
-      // editableTabs2: [
-      //   {
-      //     title: "患者详情",
-      //     name: "1",
-      //     content: "Tab 1 content"
-      //   },
-      //   {
-      //     title: "体温单",
-      //     name: "2",
-      //     content: "Tab 2 content"
-      //   },
-      //   {
-      //     title: "入院评估单",
-      //     name: "3",
-      //     content: "Tab 3 content"
-      //   }
-      // ],
-      // tabIndex: 2
+      flagDocadviceinquirydetail: true,
+      editableTabs2: [
+        {
+          title: "Tab 1",
+          name: "assesment",
+          content: <assesment />
+        },
+        {
+          title: "Tab 2",
+          name: "dayassesment",
+          content: <dayassesment />
+        },
+        {
+          title: "Tab 3",
+          name: "temperaturechart",
+          content: <temperaturechart />
+        },
+        {
+          title: "Tab 4",
+          name: "signinput",
+          content: <signinput />
+        },
+        {
+          title: "Tab 5",
+          name: "patientdetail",
+          content: <patientdetail />
+        },
+        {
+          title: "Tab 6",
+          name: "docadviceinquiry",
+          content: <docadviceinquiry />
+        },
+        {
+          title: "Tab 7",
+          name: "docadviceinquirydetail",
+          content: <docadviceinquirydetail />
+        }
+      ]
     };
   },
   mounted() {},
   methods: {
+    patientdetailShow() {
+      this.flagPatientdetail = true;
+    },
+    assesmentShow() {
+      this.flagAssesment = true;
+    },
+    dayassesmentShow() {
+      this.flagDayassesment = true;
+    },
+    nursingplanShow() {
+      this.flagNursingplan = true;
+    },
+    nursingrecordShow() {
+      this.flagNursingrecord = true;
+    },
+    temperaturechartShow() {
+      this.flagTemperaturechart = true;
+    },
+    signinputShow() {
+      this.flagSigninput = true;
+    },
+    docadviceinquiryShow() {
+      this.flagDocadviceinquiry = true;
+    },
+    docadviceinquirydetailShow() {
+      this.flagDocadviceinquirydetail = true;
+    },
+
+    closePatient() {},
     removeTab(targetName) {
       let tabs = this.editableTabs2;
       let activeName = this.editableTabsValue2;
@@ -173,18 +228,30 @@ export default {
 
       this.editableTabsValue2 = activeName;
       this.editableTabs2 = tabs.filter(tab => tab.name !== targetName);
+    },
+    showevent() {
+      console.log(999999);
+      this.editableTabsValue2 = "docadviceinquirydetail";
+      // this.flagDocadviceinquiry = false;
+      // this.flagDocadviceinquirydetail = true;
+    },
+    showtemevent() {
+      console.log(77777);
+      this.editableTabsValue2 = "signinput";
+      // this.flagDocadviceinquiry = false;
+      // this.flagDocadviceinquirydetail = true;
     }
-  },
-  jumpPage() {
-    this.flagTemperaturechart = false;
-    console.log(this.flagTemperaturechart);
-    this.flagSigninput = true;
+    // jumpPage() {
+    //   this.flagTemperaturechart = false;
+    //   console.log(this.flagTemperaturechart);
+    //   this.flagSigninput = true;
+    // }
+    // showcard() {
+    //   console.log(1234);
+    //   this.flagDocadviceinquiry = false;
+    //   this.flagDocadviceinquirydetail = true;
+    // }      @showevent="showcard"
   }
-  // showcard() {
-  //   console.log(1234);
-  //   this.flagDocadviceinquiry = false;
-  //   this.flagDocadviceinquirydetail = true;
-  // }
 };
 </script>
 
@@ -195,7 +262,19 @@ export default {
   padding: 0;
   margin: 0;
 }
-
+.center {
+  position: absolute;
+  top: -40px;
+  left: 148px;
+  z-index: 1000000;
+  padding: 5px 10px;
+  line-height: 28px;
+  width: 122px;
+  border: 1px solid #fff;
+  background: #fff;
+  color: #666;
+  font-size: 14px;
+}
 .nav {
   height: 28px;
   width: 100%;

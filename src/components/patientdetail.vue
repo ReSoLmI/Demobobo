@@ -39,6 +39,8 @@
             mode="horizontal"
             @select="handleSelect"
             style="display:inline-block;"
+            @open="handleOpen"
+            @close="handleClose"
           >
             <el-menu-item index="1">文书待办</el-menu-item>
             <el-menu-item index="2">待测体征</el-menu-item>
@@ -116,7 +118,15 @@ export default {
     });
   },
 
-  methods: {}
+  methods: {
+    handleSelect() {},
+    handleOpen(key, keyPath) {
+      console.log(key, keyPath);
+    },
+    handleClose(key, keyPath) {
+      console.log(key, keyPath);
+    }
+  }
 };
 </script>
 

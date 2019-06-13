@@ -83,7 +83,7 @@
             size="mini"
             style="border：none"
             class="btn"
-            @click="showDetail"
+            @click="showDocadviceDetail"
           >执行明细</el-button>
         </el-table-column>
       </el-table>
@@ -502,10 +502,11 @@ export default {
   },
 
   methods: {
-    showDetail() {
-      this.query = true;
-      this.querydetail = false;
-      this.$emit("showevent");
+    showDocadviceDetail() {
+      console.log(888);
+      // this.query = true;
+      // this.querydetail = false;
+      this.$emit("show-docevent");
     },
     showOperation() {}
   }

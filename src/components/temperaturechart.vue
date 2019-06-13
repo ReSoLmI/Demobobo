@@ -168,8 +168,9 @@ export default {
       this.sidebarShow = !this.sidebarShow;
     },
     jump() {
-      console.log(3);
-      this.$emit("closeTemPage");
+      // console.log(3);
+      // console.log(window.location.pathname);
+      this.$emit("show-temevent");
     },
     chooseAll() {}
   }

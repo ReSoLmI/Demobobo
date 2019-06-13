@@ -6,18 +6,18 @@
           style="display:inline-block;width:80px;height:25px; font-size:14px;line-height:25px;text-align:center;border:1px solid #ccc"
         >成人</div>
         <div
-          style="display:inline-block;width:80px;height:25px; font-size:14px;line-height:25px;text-align:center;background:#666;border:1px solid #ccc;position:relative;left:-6px;color:#fff;"
+          style="display:inline-block;width:80px;height:25px; font-size:14px;line-height:25px;text-align:center;background:#ccc;border:1px solid #ccc;position:relative;left:-6px;color:#fff;"
         >新生儿</div>
       </div>
 
-      <div style="display:inline-block;margin-top:11px;margin-left:214px;">
-        <div
+      <ul style="display:inline-block;margin-top:11px;margin-left:214px;" id="time-select">
+        <li
           style="display:inline-block;width:60px;height:25px; font-size:14px;line-height:25px;text-align:center;border:1px solid #ccc;"
-        >2</div>
-        <div
+        >2</li>
+        <li
           style="display:inline-block;width:60px;height:25px; font-size:14px;line-height:25px;text-align:center;border:1px solid #ccc"
-        >6</div>
-        <div
+        >6</li>
+        <li
           style="display:inline-block;width:60px;height:25px; font-size:14px;line-height:25px;text-align:center;border:1px solid #ccc"
         >
           10
@@ -26,16 +26,16 @@
             alt
             style="position:absolute;left:576px;top:13px;"
           >
-        </div>
-        <div
+        </li>
+        <li
           style="display:inline-block;width:60px;height:25px; font-size:14px;line-height:25px;text-align:center;border:1px solid #ccc"
-        >14</div>
-        <div
+        >14</li>
+        <li
           style="display:inline-block;width:60px;height:25px; font-size:14px;line-height:25px;text-align:center;border:1px solid #ccc"
-        >18</div>
-        <div
-          style="display:inline-block;width:60px;height:25px; font-size:14px;line-height:25px;text-align:center;background:#666;border:1px solid #ccc;color:#fff;"
-        >22</div>
+        >18</li>
+        <li
+          style="display:inline-block;width:60px;height:25px; font-size:14px;line-height:25px;text-align:center;background:#ccc;border:1px solid #ccc;color:#fff;"
+        >22</li>
         <select
           class="sign-input-select"
           style="width:160px;height:26px;margin-left:40px;position:relative;left:-40px;top:-2px;"
@@ -48,7 +48,7 @@
           <option value="audi">2019-06-10</option>
         </select>
         <div style="display:inline-block;color:#00f;font-size:14px;margin-left:100px">导出Excel</div>
-      </div>
+      </ul>
     </div>
     <div class="signbatchinput" style="display:flex;">
       <div class="signbatchinput-left" style="width:200px;height:800px;">
@@ -141,6 +141,16 @@
 </template>
 
 <script type="text/javascript">
+$(document).ready(function() {
+  $("#time-select li").click(function() {
+    var color = $(this).css("background-color");
+    if (color != "transparent" && color != "rgba(0, 0, 0, 0)") {
+      $(this).css("background-color", "transparent");
+    } else {
+      $(this).css("background-color", "#CCC");
+    }
+  });
+});
 import axios from "axios";
 export default {
   data() {

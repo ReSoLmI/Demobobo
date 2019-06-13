@@ -4,12 +4,12 @@
       <slot></slot>
       <span>智慧医疗</span>
     </div>
-    <div class="center" v-show="mode">
+    <!-- <div class="center" v-show="mode">
       001&nbsp;&nbsp;刘德安&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <span
         @click="closePatient"
       >X</span>
-    </div>
+    </div>-->
     <div class="right">
       <span class="right-time">时间：2019年06月01日 12:29:22</span>
       <span class="right-departments">消化内科&nbsp;∨</span>
@@ -26,11 +26,27 @@ export default {
     return {};
   },
   computed: {
-    mode() {
-      window.location.href === "http://localhost:8080/card";
-    }
+    // mode: {
+    //   // window.location.pathname == "/card";
+    //   get() {
+    //     return window.location.pathname == "/card" ? true : false;
+    //   },
+    //   set(val) {
+    //     if (val) {
+    //       window.location.pathname = "/card";
+    //     } else {
+    //       window.location.pathname;
+    //     }
+    //   }
+    // }
   },
-  mounted() {},
+  mounted() {
+    // if (window.location.pathname == "/card") {
+    //   this.mode = true;
+    // } else {
+    //   this.mode = false;
+    // }
+  },
 
   methods: {
     closePatient() {
@@ -59,17 +75,17 @@ nav {
     float: left;
     margin-left: 50px;
   }
-  .center {
-    display: inline-block;
-    margin-left: 25px;
-    padding: 5px 10px;
-    line-height: 28px;
-    width: 108px;
-    border: 1px solid #fff;
-    background: #fff;
-    color: #666;
-    font-size: 14px;
-  }
+  // .center {
+  //   display: inline-block;
+  //   margin-left: 25px;
+  //   padding: 5px 10px;
+  //   line-height: 28px;
+  //   width: 122px;
+  //   border: 1px solid #fff;
+  //   background: #fff;
+  //   color: #666;
+  //   font-size: 14px;
+  // }
 
   .right {
     float: right;
